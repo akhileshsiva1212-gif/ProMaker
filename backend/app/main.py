@@ -21,8 +21,8 @@ logger = logging.getLogger("promaker")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Ensure data dir exists
-    Path("./data").mkdir(parents=True, exist_ok=True)
+    # Vercel serverless filesystem is read-only except /tmp
+    Path("/tmp").mkdir(parents=True, exist_ok=True)
     client = get_memory_client()
     n = await seed_if_empty(client)
     if n:

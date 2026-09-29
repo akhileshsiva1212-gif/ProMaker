@@ -16,7 +16,7 @@ class Settings(BaseSettings):
 
     app_env: str = "development"
     cors_origins: str = "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173"
-    database_url: str = "sqlite+aiosqlite:///./data/promaker.db"
+    database_url: str = "sqlite+aiosqlite:////tmp/promaker.db"
 
     @property
     def use_real_hindsight(self) -> bool:
